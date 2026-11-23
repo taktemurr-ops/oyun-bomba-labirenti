@@ -5,7 +5,6 @@ import 'package:arcade_motoru/bomba.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const bombaId = 'oyun-bomba-labirenti';
 
@@ -88,7 +87,7 @@ final bombaConfig = GameConfig(
   rules: bombaRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => bombaRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => bombaRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintBomber(c, s, p, t);
